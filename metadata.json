@@ -1,0 +1,6 @@
+{
+  "name": "Google Merchandise Store Clone",
+  "description": "Production-ready, data-driven e-commerce clone of the Google Merchandise Store featuring Android collectibles, 1998 Retro collection, GA4 event tracking, and single-page checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
