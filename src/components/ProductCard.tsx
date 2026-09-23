@@ -27,13 +27,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         className="relative cursor-pointer aspect-[4/3] w-full overflow-hidden bg-neutral-100 flex items-center justify-center"
       >
         <img
-          src={product.image}
+          src={product.image || product.fallbackImage}
           alt={product.name}
           referrerPolicy="no-referrer"
           className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
           onError={(e) => {
-            // Styled graceful fallback container
-            (e.target as HTMLElement).style.display = 'none';
+            const img = e.currentTarget;
+            if (product.fallbackImage && img.src !== window.location.origin + product.fallbackImage) {
+              img.src = product.fallbackImage;
+            }
           }}
         />
 

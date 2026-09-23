@@ -113,10 +113,16 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 {items.map((item, index) => (
                   <div key={`${item.product.id}-${index}`} className="flex gap-3 pt-4 first:pt-0">
                     <img
-                      src={item.product.image}
+                      src={item.product.image || item.product.fallbackImage}
                       alt={item.product.name}
                       referrerPolicy="no-referrer"
                       className="w-18 h-18 object-cover rounded-lg border border-neutral-200 bg-neutral-50 shrink-0"
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        if (item.product.fallbackImage && img.src !== window.location.origin + item.product.fallbackImage) {
+                          img.src = item.product.fallbackImage;
+                        }
+                      }}
                     />
                     <div className="flex-1 flex flex-col justify-between">
                       <div>
@@ -183,10 +189,16 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-2.5">
                         <img
-                          src={suggestedProduct.image}
+                          src={suggestedProduct.image || suggestedProduct.fallbackImage}
                           alt={suggestedProduct.name}
                           referrerPolicy="no-referrer"
                           className="w-10 h-10 object-cover rounded bg-white border border-neutral-200 shrink-0"
+                          onError={(e) => {
+                            const img = e.currentTarget;
+                            if (suggestedProduct.fallbackImage && img.src !== window.location.origin + suggestedProduct.fallbackImage) {
+                              img.src = suggestedProduct.fallbackImage;
+                            }
+                          }}
                         />
                         <div>
                           <div className="text-xs font-medium text-neutral-900 line-clamp-1">

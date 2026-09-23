@@ -65,10 +65,16 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
           <div className="bg-neutral-50 p-6 sm:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-neutral-200">
             <div className="aspect-[4/3] rounded-xl overflow-hidden bg-white border border-neutral-200 flex items-center justify-center">
               <img
-                src={product.image}
+                src={product.image || product.fallbackImage}
                 alt={product.name}
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  const img = e.currentTarget;
+                  if (product.fallbackImage && img.src !== window.location.origin + product.fallbackImage) {
+                    img.src = product.fallbackImage;
+                  }
+                }}
               />
             </div>
 
@@ -245,10 +251,16 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                       >
                         <div className="flex items-center gap-2.5">
                           <img
-                            src={rel.image}
+                            src={rel.image || rel.fallbackImage}
                             alt={rel.name}
                             referrerPolicy="no-referrer"
                             className="w-10 h-10 object-cover rounded bg-white border border-neutral-200 shrink-0"
+                            onError={(e) => {
+                              const img = e.currentTarget;
+                              if (rel.fallbackImage && img.src !== window.location.origin + rel.fallbackImage) {
+                                img.src = rel.fallbackImage;
+                              }
+                            }}
                           />
                           <div className="text-left">
                             <div className="text-xs font-medium text-neutral-900 line-clamp-1">

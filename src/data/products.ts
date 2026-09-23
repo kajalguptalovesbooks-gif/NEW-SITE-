@@ -1,3 +1,10 @@
+import marineLayerImg from '../assets/images/marine_layer_pullover_1790191164565.jpg';
+import androidPlushieImg from '../assets/images/android_classic_plushie_1790191177596.jpg';
+import chromeDinoImg from '../assets/images/chrome_dino_figure_1790191191577.jpg';
+import youtubeHoodieImg from '../assets/images/youtube_creator_hoodie_1790192338843.jpg';
+import googleMugImg from '../assets/images/google_ceramic_mug_1790192349345.jpg';
+import googleJournalImg from '../assets/images/google_field_journal_1790192361595.jpg';
+
 export interface Product {
   id: string;
   name: string;
@@ -10,6 +17,7 @@ export interface Product {
   description: string;
   details: string[];
   image: string;
+  fallbackImage: string;
   sizes?: string[];
   colors?: { name: string; hex: string }[];
   inStock: boolean;
@@ -38,7 +46,8 @@ export const PRODUCTS: Product[] = [
       'Pre-shrunk custom wash with brushed interior fleece',
       'Sustainably manufactured in certified facilities'
     ],
-    image: '/src/assets/images/marine_layer_pullover_1790191164565.jpg',
+    image: marineLayerImg,
+    fallbackImage: '/images/marine_layer_pullover.jpg',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
     colors: [
       { name: 'Vintage Deep Navy', hex: '#1E293B' },
@@ -69,7 +78,8 @@ export const PRODUCTS: Product[] = [
       'Stitch-reinforced flexible antennae',
       'Height: 8 inches (20.3 cm)'
     ],
-    image: '/src/assets/images/android_classic_plushie_1790191177596.jpg',
+    image: androidPlushieImg,
+    fallbackImage: '/images/android_classic_plushie.jpg',
     inStock: true,
     featured: true,
     sku: 'AND-PLSH-001',
@@ -92,7 +102,8 @@ export const PRODUCTS: Product[] = [
       'Official Chrome engraved baseplate',
       'Dimensions: 3.5" H x 3.8" W'
     ],
-    image: '/src/assets/images/chrome_dino_figure_1790191191577.jpg',
+    image: chromeDinoImg,
+    fallbackImage: '/images/chrome_dino_figure.jpg',
     inStock: true,
     featured: true,
     sku: 'CHRM-DINO-09',
@@ -116,7 +127,8 @@ export const PRODUCTS: Product[] = [
       'Thumb loops at cuffs for warmth',
       'Reinforced seams throughout'
     ],
-    image: '/src/assets/images/marine_layer_pullover_1790191164565.jpg',
+    image: youtubeHoodieImg,
+    fallbackImage: '/images/youtube_creator_hoodie.jpg',
     sizes: ['Youth L', 'XS', 'S', 'M', 'L', 'XL', '2XL'],
     colors: [
       { name: 'Studio Jet Black', hex: '#0F172A' },
@@ -144,7 +156,8 @@ export const PRODUCTS: Product[] = [
       'Embossed micro Google "G" emblem at base',
       'Double-walled thermal insulation'
     ],
-    image: '/src/assets/images/chrome_dino_figure_1790191191577.jpg',
+    image: googleMugImg,
+    fallbackImage: '/images/google_ceramic_mug.jpg',
     inStock: true,
     featured: true,
     sku: 'GGL-DW-MUG-14',
@@ -167,7 +180,8 @@ export const PRODUCTS: Product[] = [
       'Elastic closure band and dual ribbon markers',
       'Debossed 1998 logo on back panel'
     ],
-    image: '/src/assets/images/marine_layer_pullover_1790191164565.jpg',
+    image: googleJournalImg,
+    fallbackImage: '/images/google_field_journal.jpg',
     inStock: true,
     sku: 'GGL-ST-NBK-02',
     bundleSuggestions: ['google-matte-ceramic-mug']
@@ -187,7 +201,8 @@ export const PRODUCTS: Product[] = [
       'Official Android Hologram Authenticity card included',
       'Average size: 1.25 inches across'
     ],
-    image: '/src/assets/images/android_classic_plushie_1790191177596.jpg',
+    image: androidPlushieImg,
+    fallbackImage: '/images/android_classic_plushie.jpg',
     inStock: true,
     sku: 'AND-PIN-SET-04'
   },
@@ -206,7 +221,8 @@ export const PRODUCTS: Product[] = [
       'Ribbed crew collar with taped neck & shoulders',
       'Casual unisex standard fit'
     ],
-    image: '/src/assets/images/chrome_dino_figure_1790191191577.jpg',
+    image: chromeDinoImg,
+    fallbackImage: '/images/chrome_dino_figure.jpg',
     sizes: ['S', 'M', 'L', 'XL', '2XL'],
     inStock: true,
     sku: 'CHRM-TEE-8BIT'

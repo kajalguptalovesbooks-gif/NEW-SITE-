@@ -224,10 +224,16 @@ export default function App() {
                       className="cursor-pointer group relative aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200/80 shadow-md hover:shadow-lg transition-all"
                     >
                       <img
-                        src={anchorProduct.image}
+                        src={anchorProduct.image || anchorProduct.fallbackImage}
                         alt="Google Marine Layer 1998 Pullover"
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                        onError={(e) => {
+                          const img = e.currentTarget;
+                          if (anchorProduct.fallbackImage && img.src !== window.location.origin + anchorProduct.fallbackImage) {
+                            img.src = anchorProduct.fallbackImage;
+                          }
+                        }}
                       />
                       <div className="absolute top-4 left-4">
                         <span className="bg-neutral-900/90 text-white text-[11px] font-semibold px-2.5 py-1 rounded backdrop-blur-xs">

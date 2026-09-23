@@ -405,10 +405,16 @@ export const CheckoutView: React.FC<CheckoutViewProps> = ({
                 <div key={idx} className="pt-2 first:pt-0 flex items-center justify-between gap-3 text-xs">
                   <div className="flex items-center gap-2.5">
                     <img
-                      src={item.product.image}
+                      src={item.product.image || item.product.fallbackImage}
                       alt={item.product.name}
                       referrerPolicy="no-referrer"
                       className="w-11 h-11 object-cover rounded bg-neutral-100 border border-neutral-200 shrink-0"
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        if (item.product.fallbackImage && img.src !== window.location.origin + item.product.fallbackImage) {
+                          img.src = item.product.fallbackImage;
+                        }
+                      }}
                     />
                     <div>
                       <div className="font-medium text-neutral-900 line-clamp-1">
