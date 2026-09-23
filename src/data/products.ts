@@ -4,6 +4,7 @@ import chromeDinoImg from '../assets/images/chrome_dino_figure_1790191191577.jpg
 import youtubeHoodieImg from '../assets/images/youtube_creator_hoodie_1790192338843.jpg';
 import googleMugImg from '../assets/images/google_ceramic_mug_1790192349345.jpg';
 import googleJournalImg from '../assets/images/google_field_journal_1790192361595.jpg';
+import superGGradientTshirtImg from '../assets/images/super_g_gradient_tshirt_1790192656540.jpg';
 
 export interface Product {
   id: string;
@@ -85,6 +86,37 @@ export const PRODUCTS: Product[] = [
     sku: 'AND-PLSH-001',
     badge: 'Trending Collector Item',
     bundleSuggestions: ['chrome-dino-collectible-figure', 'google-matte-ceramic-mug']
+  },
+  {
+    id: 'super-g-gradient-tshirt',
+    name: 'Super G Gradient T-Shirt',
+    brand: 'Google',
+    category: '1998 Retro Collection',
+    price: 34.00,
+    originalPrice: 38.00,
+    rating: 4.92,
+    reviewCount: 218,
+    description: 'A modern icon of Google design heritage. Crafted from premium 100% organic combed cotton featuring the signature Super G logo rendered in a high-density four-color gradient chest print.',
+    details: [
+      '100% GOTS-certified organic ring-spun cotton (190 GSM)',
+      'High-definition soft-hand 4-color gradient chest screenprint',
+      'Ribbed collar with reinforced shoulder-to-shoulder taping',
+      'Pre-shrunk enzyme wash for lasting comfort and durability',
+      'Standard unisex retail fit'
+    ],
+    image: superGGradientTshirtImg,
+    fallbackImage: '/images/super_g_gradient_tshirt.jpg',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+    colors: [
+      { name: 'Optic Crisp White', hex: '#FFFFFF' },
+      { name: 'Charcoal Heather', hex: '#334155' },
+      { name: 'Palo Alto Navy', hex: '#1E293B' }
+    ],
+    inStock: true,
+    featured: true,
+    sku: 'GGL-SGG-TEE-01',
+    badge: 'Popular Favorite',
+    bundleSuggestions: ['marine-layer-1998-pullover', 'google-matte-ceramic-mug']
   },
   {
     id: 'chrome-dino-collectible-figure',
